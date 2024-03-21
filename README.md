@@ -16,3 +16,4 @@
 
 - fiz tudo, fiz sozinho em sala e refiz em casa e aprendi todos os conceitos.
 - levei 1h(sala) + 30m(casa)
+
