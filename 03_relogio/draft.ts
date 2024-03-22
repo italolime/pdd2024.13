@@ -4,23 +4,62 @@ class Time {
     private second: number;
 
     constructor(hour: number, minute: number, second: number) {
+        this.hour = 0;
+        this.minute = 0;
+        this.second = 0;
+        this.setHour(hour);
+        this.setMinute(minute);
+        this.setSecond(second);
     }
     setHour(hour: number): void {
+        if(hour < 0 || hour > 23){
+            console.log("fail: hora invalida");
+            return;
+        }
+        this.hour = hour;
     }
     setMinute(minute: number): void {
+        if(minute<0 || minute > 59){
+            console.log("fail: minuto invalido");
+            return;
+        }
+        this.minute = minute;
     }
 
     setSecond(second: number): void {
+        if(second<0 || second> 59){
+            console.log("fail: segundo invalido");
+            return;
+        }
+        this.second = second;
     }
     getHour(): number {
+        return this.hour;
     }
     getMinute(): number {
+        return this.minute;
     }
 
     getSecond(): number {
+        return this.second;
     }
     nextSecond(): void {
+        this.second++;
+        if(this.second>59){
+            this.minute++;
+            this.second = 0;
+                if(this.minute>59){
+                    this.hour++;
+                    this.minute = 0;
+                    if(this.hour>23){
+                        this.hour = 0;
+                    }
+                }
+        }
+
+
     }
+
     toString() {
         let p2 = (n: number) => ("" + n).padStart(2, "0");
         return p2(this.hour) + ":" + p2(this.minute) + ":" + p2(this.second);
